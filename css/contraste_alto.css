@@ -1,0 +1,366 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: grey !important;
+    color: #111;
+    line-height: 1.6;
+
+    h3 {
+        color: #ffeb3b !important;
+    }
+
+    form {
+        background-color: #000 !important;
+
+        button {
+            background-color: #ffcc00 !important;
+            color: #000 !important;
+            border: 2px solid #000;
+
+            &:hover {
+                background-color: #003366 !important;
+                color: #ffcc00 !important;
+            }
+        }
+
+        label {
+            color: white !important;
+        }
+    }
+}
+
+header.Cabecera {
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px 20px;
+    flex-wrap: wrap;
+    position: relative;
+
+    .texto {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        figure img {
+            max-width: 70px;
+            border: 3px solid #fff;
+            border-radius: 8px;
+        }
+    }
+
+    .titulo {
+        display: flex;
+        flex-direction: column;
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            color: #fff;
+        }
+
+        h3 {
+            font-family: 'Leckerli One', cursive;
+            font-size: 1.4em;
+            color: #ffeb3b;
+        }
+    }
+
+    .menu-escritorio {
+        ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+
+            li a {
+                text-decoration: none;
+                background-color: #ffcc00;
+                color: #003366;
+                font-weight: bold;
+                padding: 8px 12px;
+                border-radius: 5px;
+                border: 2px solid #003366;
+
+                &:hover {
+                    background-color: #003366;
+                    color: #ffcc00;
+                }
+            }
+        }
+    }
+}
+
+.menu-movil {
+    display: none;
+
+    ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        list-style: none;
+
+        li a {
+            display: inline-block;
+            font-size: 1.8em;
+            color: #ffcc00;
+            text-decoration: none;
+        }
+    }
+}
+
+main {
+    background-color: black !important;
+
+    p {
+        color: #fff !important;
+    }
+
+    h2 {
+        color: #ffeb3b !important;
+    }
+
+    ul {
+        color: #fff !important;
+    }
+
+    a {
+        color: #ffeb3b !important;
+    }
+
+    .contacto {
+        background-color: grey !important
+    }
+
+    strong {
+        color: #ffeb3b !important;
+    }
+
+    label {
+        color: #ffeb3b !important;
+    }
+
+    button {
+        background-color: #ffcc00 !important;
+        color: #000 !important;
+        border: 2px solid #000;
+
+        &:hover {
+            background-color: #003366 !important;
+            color: #ffcc00 !important;
+        }
+    }
+
+    #enviados {
+        background-color: grey !important;
+    }
+
+    #recibidos {
+        background-color: grey !important;
+    }
+
+    #opcion {
+        background-color: grey !important;
+
+        &:hover {
+            background-color: #003366 !important;
+            color: #ffcc00 !important;
+        }
+    }
+
+    fieldset {
+        background-color: grey !important;
+
+        legend {
+            color: #ffeb3b !important;
+        }
+
+        label {
+            color: #000 !important;
+        }
+
+        output {
+            color: white !important;
+        }
+    }
+
+    table {
+        caption {
+            color: #ffeb3b !important;
+        }
+
+        th {
+            background-color: #ffcc00 !important;
+            color: #000 !important;
+            border: 2px solid #000 !important;
+        }
+
+        td {
+            background-color: grey !important;
+            color: #000 !important;
+            border: 2px solid #000 !important;
+        }
+    }
+
+    #destacado {
+        background-color: grey !important;
+
+        a {
+            background-color: #ffcc00 !important;
+            color: #000 !important;
+            border: 2px solid #000;
+            font-weight: bold !important;
+
+            &:hover {
+                background-color: #003366 !important;
+                color: #ffcc00 !important;
+            }
+        }
+    }
+}
+
+footer {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 40px;
+    font-size: 0.9em;
+    border-top: 4px solid #ffcc00;
+
+    a {
+        color: #ffeb3b !important;
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s ease, text-shadow 0.3s ease;
+
+        &:hover {
+            color: white !important;
+            text-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .menu-escritorio {
+        display: none;
+    }
+
+    .menu-movil {
+        display: block;
+        width: 100%;
+        margin-top: 10px;
+
+        ul {
+            justify-content: space-between;
+
+            li a {
+                color: #ffcc00;
+            }
+        }
+    }
+
+    header.Cabecera h3 {
+        display: none;
+    }
+
+    main {
+        #ultimos-anuncios {
+            flex-direction: column;
+            align-items: center;
+
+            .anuncio {
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+    }
+}
+
+.inicio {
+    background-color: rgb(42, 42, 42) !important;
+
+    main {
+        background-color: rgb(42, 42, 42) !important;
+
+        #busqueda-rapida {
+            border: 2px solid #ffcc00 !important;
+            background-color: rgb(42, 42, 42) !important;
+
+            input {
+                background-color: #fff !important;
+                color: #000 !important;
+                border: 2px solid #ffcc00;
+            }
+
+            button {
+                background-color: #ffcc00 !important;
+                color: #000 !important;
+                border: 2px solid #000;
+
+                &:hover {
+                    background-color: #003366 !important;
+                    color: #ffcc00 !important;
+                }
+            }
+
+        }
+
+        #ultimos-anuncios {
+            background-color: rgb(42, 42, 42) !important;
+
+            .anuncio {
+                border: 2px solid #ffcc00;
+                background-color: grey !important;
+
+                h3 {
+                    color: #000;
+                }
+
+                p {
+                    color: #000;
+                }
+
+                a {
+                    background-color: #ffcc00 !important;
+                    color: #000 !important;
+                    border: 2px solid #000;
+                    font-weight: bold !important;
+
+                    &:hover {
+                        background-color: #003366 !important;
+                        color: #ffcc00 !important;
+                    }
+                }
+            }
+        }
+
+        #login-popup {
+            border: 2px solid #ffcc00 !important;
+            background-color: #fff !important;
+
+            form {
+                background-color: #fff !important;
+
+                button {
+                    background-color: #ffcc00 !important;
+                    color: #000 !important;
+                    border: 2px solid #000 !important;
+
+                    &:hover {
+                        background-color: #000;
+                        color: #ffcc00;
+                    }
+                }
+            }
+        }
+    }
+
+}
