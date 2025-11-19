@@ -22,7 +22,6 @@
 </head>
 
 <body>
-    <!-- Cabecera -->
     <header class="Cabecera">
         <section class="texto">
             <figure>
@@ -52,7 +51,6 @@
         </nav>
     </header>
 
-    <!-- Contenido principal -->
     <main>
         <section id="resultados">
             <h2>Resultados Encontrados</h2>
@@ -61,13 +59,15 @@
                 style="width: 100%; text-align: right; margin-bottom: 15px; padding: 0 10px;">
                 <label for="ordenarPor" style="font-weight: bold; color: #1b9986;">Ordenar por:</label>
                 <select id="ordenarPor" style="padding: 5px; border-radius: 5px; border: 1px solid #ccc;">
-                    <option value="defecto">Relevancia</option>
+                    <option value="defecto">Relevancia (por defecto)</option>
                     <option value="precioAsc">Precio: Menor a Mayor</option>
                     <option value="precioDesc">Precio: Mayor a Menor</option>
+                    <option value="fechaReciente">Fecha: Más recientes</option>
+                    <option value="fechaAntigua">Fecha: Más antiguos</option>
                 </select>
             </div>
 
-            <article id="destacado" class="anuncio-item" data-precio="350000">
+            <article id="destacado" class="anuncio-item" data-precio="350000" data-fecha="20250923">
                 <figure>
                     <img src="./img/completo.jpg" alt="Vivienda en Madrid">
                 </figure>
@@ -78,7 +78,7 @@
                 <a href="anuncio.html">Ver detalle</a>
             </article>
 
-            <article id="destacado" class="anuncio-item" data-precio="180000">
+            <article id="destacado" class="anuncio-item" data-precio="180000" data-fecha="20250828">
                 <figure>
                     <img src="./img/barcelona.jpeg" alt="Piso en Barcelona">
                 </figure>
@@ -89,7 +89,7 @@
                 <a href="404.html">Ver detalle</a>
             </article>
 
-            <article id="destacado" class="anuncio-item" data-precio="150000">
+            <article id="destacado" class="anuncio-item" data-precio="150000" data-fecha="20250820">
                 <figure>
                     <img src="./img/sevilla.jpeg" alt="Casa en Sevilla">
                 </figure>
@@ -100,7 +100,7 @@
                 <a href="404.html">Ver detalle</a>
             </article>
 
-            <article id="destacado" class="anuncio-item" data-precio="170000">
+            <article id="destacado" class="anuncio-item" data-precio="170000" data-fecha="20250801">
                 <figure>
                     <img src="./img/balcon.jpg" alt="Casa en Málaga">
                 </figure>
@@ -111,7 +111,7 @@
                 <a href="404.html">Ver detalle</a>
             </article>
 
-            <article id="destacado" class="anuncio-item" data-precio="1250000">
+            <article id="destacado" class="anuncio-item" data-precio="1250000" data-fecha="20251010">
                 <figure>
                     <img src="./img/salon.jpg" alt="Piso en Castellón">
                 </figure>
@@ -123,6 +123,7 @@
             </article>
         </section>
     </main>
+
 
     <footer>
         <p>2025 VENTAPLUS | Proyecto DAW | <a href="accesibilidad.html">Accesibilidad</a>.</p>
