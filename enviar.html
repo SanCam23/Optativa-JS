@@ -19,6 +19,7 @@
     <link rel="stylesheet" type="text/css" href="css/print_enviar.css" media="print">
     <link href="https://fonts.googleapis.com/css2?family=Leckerli+One&family=Playfair+Display:wght@700&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="" id="estilo-alternativo">
 </head>
 
 <body>
@@ -40,6 +41,13 @@
                 <li><a href="index.html"><i class="icon-home"></i>Inicio</a></li>
                 <li></i><a href="formulario.html"><i class="icon-search"></i>Buscar</a></li>
                 <li><a href="menu_usuario_registrado.html"><i class="icon-user"></i>Mi Perfil</a></li>
+                <li style="margin-left: 10px;">
+                    <select id="selector-estilo" aria-label="Seleccionar estilo visual">
+                        <option value="normal">Estilo Normal</option>
+                        <option value="alto_contraste">Alto Contraste</option>
+                        <option value="letra_grande">Letra Grande</option>
+                        <option value="contraste_letra">A. Contraste + Grande</option>
+                    </select>
             </ul>
         </nav>
 
@@ -81,7 +89,10 @@
     </main>
 
     <footer>
-        <p>2025 VENTAPLUS | Proyecto DAW | <a href="accesibilidad.html">Accesibilidad</a>.</p>
+        <p>2025 VENTAPLUS | Proyecto DAW |
+            <a href="accesibilidad.html">Accesibilidad</a> |
+            <a href="politica_cookies.html">Política de Cookies</a>
+        </p>
     </footer>
 
     <dialog class="modal" id="modalErrores">
@@ -91,6 +102,8 @@
     </dialog>
 
     <script src="./js/enviar.js"></script>
+    <script src="js/cookies.js"></script>
+    <script src="js/estilos.js"></script>
 </body>
 
 </html>

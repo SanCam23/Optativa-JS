@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="css/fontello.css">
     <link href="https://fonts.googleapis.com/css2?family=Leckerli+One&family=Playfair+Display:wght@700&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="" id="estilo-alternativo">
 </head>
 
 <body>
@@ -41,6 +42,13 @@
                 <li></i><a href="formulario.html"><i class="icon-search"></i>Buscar</a></li>
                 <li><a href="index_identificado.html"><i class="icon-user"></i>Iniciar Sesión</a></li>
                 <li><a href="registro.html"><i class="icon-user-plus"></i>Registrarse</a></li>
+                <li style="margin-left: 10px;">
+                    <select id="selector-estilo" aria-label="Seleccionar estilo visual">
+                        <option value="normal">Estilo Normal</option>
+                        <option value="alto_contraste">Alto Contraste</option>
+                        <option value="letra_grande">Letra Grande</option>
+                        <option value="contraste_letra">A. Contraste + Grande</option>
+                    </select>
             </ul>
         </nav>
 
@@ -55,46 +63,49 @@
     </header>
 
     <main>
-    <form id="registro-form">
-        <label for="usuario">Nombre de usuario:</label>
-        <input type="text" id="usuario" name="usuario" placeholder="Nombre de usuario" >
+        <form id="registro-form">
+            <label for="usuario">Nombre de usuario:</label>
+            <input type="text" id="usuario" name="usuario" placeholder="Nombre de usuario">
 
-        <label for="password">Contraseña:</label>
-        <input type="password" id="password" name="password" placeholder="Contraseña">
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" placeholder="Contraseña">
 
-        <label for="confirm_password">Confirmar contraseña:</label>
-        <input type="password" id="confirm_password" name="confirm_password" placeholder="Repetir contraseña">
+            <label for="confirm_password">Confirmar contraseña:</label>
+            <input type="password" id="confirm_password" name="confirm_password" placeholder="Repetir contraseña">
 
-        <label for="email">Correo electrónico:</label>
-        <input type="text" id="email" name="email" placeholder="tu@email.com">
+            <label for="email">Correo electrónico:</label>
+            <input type="text" id="email" name="email" placeholder="tu@email.com">
 
-        <label for="sexo">Sexo:</label>
-        <select id="sexo" name="sexo">
-            <option value="">Selecciona tu sexo</option>
-            <option value="masculino">Masculino</option>
-            <option value="femenino">Femenino</option>
-            <option value="otro">Otro</option>
-        </select>
+            <label for="sexo">Sexo:</label>
+            <select id="sexo" name="sexo">
+                <option value="">Selecciona tu sexo</option>
+                <option value="masculino">Masculino</option>
+                <option value="femenino">Femenino</option>
+                <option value="otro">Otro</option>
+            </select>
 
-        <label for="fecha_nacimiento">Fecha de nacimiento:</label>
-        <input type="text" id="fecha_nacimiento" name="fecha_nacimiento" >
+            <label for="fecha_nacimiento">Fecha de nacimiento:</label>
+            <input type="text" id="fecha_nacimiento" name="fecha_nacimiento">
 
-        <label for="ciudad">Ciudad:</label>
-        <input type="text" id="ciudad" name="ciudad">
+            <label for="ciudad">Ciudad:</label>
+            <input type="text" id="ciudad" name="ciudad">
 
-        <label for="pais">País:</label>
-        <input type="text" id="pais" name="pais">
+            <label for="pais">País:</label>
+            <input type="text" id="pais" name="pais">
 
-        <label for="foto">Foto de perfil:</label>
-        <input type="file" id="foto" name="foto" accept="image/*">
+            <label for="foto">Foto de perfil:</label>
+            <input type="file" id="foto" name="foto" accept="image/*">
 
-        <button type="submit">Registrarse</button>
-    </form>
+            <button type="submit">Registrarse</button>
+        </form>
         <p>¿Ya tienes cuenta? <a href="./index.html">Iniciar Sesión</a></p>
     </main>
 
     <footer>
-        <p>2025 VENTAPLUS | Proyecto DAW | <a href="accesibilidad.html">Accesibilidad</a>.</p>
+        <p>2025 VENTAPLUS | Proyecto DAW |
+            <a href="accesibilidad.html">Accesibilidad</a> |
+            <a href="politica_cookies.html">Política de Cookies</a>
+        </p>
     </footer>
 
     <dialog class="modal" id="error-dialog">
@@ -103,6 +114,8 @@
     </dialog>
 
     <script src="js/registro.js"></script>
+    <script src="js/cookies.js"></script>
+    <script src="js/estilos.js"></script>
 </body>
 
 </html>
