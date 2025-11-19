@@ -1,14 +1,15 @@
 document.addEventListener("DOMContentLoaded", function() {
-
     const form = document.getElementById("registro-form");
     const errorDialog = document.getElementById("error-dialog");
-    const errorMensaje = document.getElementById("error-mensaje");
+    const listaErrores = document.getElementById("lista-errores");
     const cerrarError = document.getElementById("cerrar-error");
 
+    // Cerrar modal
     cerrarError.addEventListener("click", function() {
         errorDialog.close();
     });
 
+    // Validación del formulario
     form.addEventListener("submit", function(event) {
         event.preventDefault();
 
@@ -19,47 +20,57 @@ document.addEventListener("DOMContentLoaded", function() {
         const sexo = document.getElementById("sexo").value;
         const fechaNacimiento = document.getElementById("fecha_nacimiento").value;
 
+        const errores = [];
+
+        // Validación de usuario
         const usuarioRegex = /^[A-Za-z][A-Za-z0-9]{2,14}$/;
         if (!usuarioRegex.test(usuario)) {
-            mostrarError("El nombre de usuario debe tener entre 3 y 15 caracteres, contener solo letras y números, y no empezar con un número.");
-            return;
+            errores.push("El nombre de usuario debe tener entre 3 y 15 caracteres, comenzar con una letra y contener solo letras y números.");
         }
 
+        // Validación de contraseña
         const passwordRegex = /^[A-Za-z0-9_-]{6,15}$/;
         if (!passwordRegex.test(password)) {
-            mostrarError("La contraseña debe tener entre 6 y 15 caracteres y solo puede contener letras, números, guion y guion bajo.");
-            return;
-        }
-        if (!(/[A-Z]/.test(password) && /[a-z]/.test(password) && /[0-9]/.test(password))) {
-            mostrarError("La contraseña debe contener al menos una letra mayúscula, una letra minúscula y un número.");
-            return;
+            errores.push("La contraseña debe tener entre 6 y 15 caracteres y solo puede contener letras, números, guion y guion bajo.");
+        } else if (!(/[A-Z]/.test(password) && /[a-z]/.test(password) && /[0-9]/.test(password))) {
+            errores.push("La contraseña debe contener al menos una letra mayúscula, una letra minúscula y un número.");
         }
 
         if (password !== confirmPassword) {
-            mostrarError("Las contraseñas no coinciden.");
-            return;
+            errores.push("Las contraseñas no coinciden.");
         }
 
+        // Validación de email
         if (!validarEmail(email)) {
-            mostrarError("Correo electrónico no válido.");
-            return;
+            errores.push("Correo electrónico no válido.");
         }
 
+        // Validación de sexo
         if (sexo === "") {
-            mostrarError("Debes seleccionar un sexo.");
-            return;
+            errores.push("Debes seleccionar un sexo.");
         }
 
+        // Validación de fecha de nacimiento
         if (!validarFechaNacimiento(fechaNacimiento)) {
-            mostrarError("Debes ser mayor de 18 años.");
-            return;
+            errores.push("Debes ser mayor de 18 años.");
         }
 
-        form.submit();
+        // Mostrar errores o redirigir
+        if (errores.length > 0) {
+            mostrarErrores(errores);
+        } else {
+            window.location.href = "index_identificado.html";
+        }
     });
 
-    function mostrarError(mensaje) {
-        errorMensaje.textContent = mensaje;
+    // Mostrar errores en modal (como en el código que me pasaste)
+    function mostrarErrores(errores) {
+        listaErrores.innerHTML = "";
+        errores.forEach(error => {
+            const li = document.createElement("li");
+            li.textContent = error;
+            listaErrores.appendChild(li);
+        });
         errorDialog.showModal();
     }
 
@@ -75,8 +86,9 @@ document.addEventListener("DOMContentLoaded", function() {
         if (local.length < 1 || local.length > 64) return false;
         if (dominio.length < 1 || dominio.length > 255) return false;
 
-        const localRegex = /^[A-Za-z0-9!#$%&'*+\-/=?^_`{|}~]+(\.[A-Za-z0-9!#$%&'*+\-/=?^_`{|}~]+)*$/;
+        const localRegex = /^[A-Za-z0-9!#$%&'*+\-\/=?^_`{|}~]+(\.[A-Za-z0-9!#$%&'*+\-\/=?^_`{|}~]+)*$/;
         if (!localRegex.test(local)) return false;
+        if (local.startsWith('.') || local.endsWith('.') || local.includes('..')) return false;
 
         const subdominios = dominio.split(".");
         for (let sub of subdominios) {
@@ -89,7 +101,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function validarFechaNacimiento(fechaStr) {
-
         const partes = fechaStr.split("/");
         if (partes.length !== 3) return false;
 
@@ -109,7 +120,5 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         return edad >= 18;
-}
-
-
+    }
 });

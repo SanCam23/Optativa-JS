@@ -63,7 +63,7 @@
     </header>
 
     <main>
-        <form id="registro-form">
+        <form id="registro-form" novalidate>
             <label for="usuario">Nombre de usuario:</label>
             <input type="text" id="usuario" name="usuario" placeholder="Nombre de usuario">
 
@@ -84,7 +84,7 @@
                 <option value="otro">Otro</option>
             </select>
 
-            <label for="fecha_nacimiento">Fecha de nacimiento:</label>
+            <label for="fecha_nacimiento">Fecha de nacimiento(formato dd/mm/yyyy):</label>
             <input type="text" id="fecha_nacimiento" name="fecha_nacimiento">
 
             <label for="ciudad">Ciudad:</label>
@@ -109,7 +109,8 @@
     </footer>
 
     <dialog class="modal" id="error-dialog">
-        <p id="error-mensaje"></p>
+        <h2>Errores en el formulario</h2>
+        <ul id="lista-errores"></ul>
         <button class="cerrar" id="cerrar-error">Cerrar</button>
     </dialog>
 
