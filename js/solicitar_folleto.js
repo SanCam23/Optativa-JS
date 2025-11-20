@@ -152,7 +152,7 @@ function generarTablaCostesPractica6() {
   return tabla;
 }
 
-// Cálculo de precios por bloques (idéntico al enunciado)
+// Cálculo de precios por bloques
 function calcularCoste(pags, fotos, color, resol, t) {
   let precioPorPagina;
   if (pags < 5) precioPorPagina = t.paginas.menos5;

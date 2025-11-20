@@ -1,16 +1,16 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("registro-form");
     const errorDialog = document.getElementById("error-dialog");
     const listaErrores = document.getElementById("lista-errores");
     const cerrarError = document.getElementById("cerrar-error");
 
     // Cerrar modal
-    cerrarError.addEventListener("click", function() {
+    cerrarError.addEventListener("click", function () {
         errorDialog.close();
     });
 
     // Validación del formulario
-    form.addEventListener("submit", function(event) {
+    form.addEventListener("submit", function (event) {
         event.preventDefault();
 
         const usuario = document.getElementById("usuario").value.trim();
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // Mostrar errores en modal (como en el código que me pasaste)
+    // Mostrar errores en modal
     function mostrarErrores(errores) {
         listaErrores.innerHTML = "";
         errores.forEach(error => {
@@ -105,12 +105,12 @@ document.addEventListener("DOMContentLoaded", function() {
         if (partes.length !== 3) return false;
 
         const dia = parseInt(partes[0], 10);
-        const mes = parseInt(partes[1], 10) - 1; 
+        const mes = parseInt(partes[1], 10) - 1;
         const anio = parseInt(partes[2], 10);
 
         const fecha = new Date(anio, mes, dia);
         if (fecha.getFullYear() !== anio || fecha.getMonth() !== mes || fecha.getDate() !== dia) {
-            return false; 
+            return false;
         }
 
         const hoy = new Date();
