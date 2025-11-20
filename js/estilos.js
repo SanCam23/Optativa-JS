@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const nuevoEstilo = this.value;
             aplicarEstilo(nuevoEstilo);
 
-            // Requisito PDF: Persistencia de 45 días SOLO si aceptó cookies
+            // Persistencia de 45 días SOLO si aceptó cookies
             const consentimiento = getCookie("cookie_consent");
             if (consentimiento === "true") {
                 setCookie("estilo_seleccionado", nuevoEstilo, 45);

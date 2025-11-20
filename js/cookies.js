@@ -1,9 +1,5 @@
-/**
- * Funciones de utilidad para Cookies
- */
+/* Funciones de utilidad para Cookies */
 
-// Crear una cookie
-// Requisito: Duración configurable (45 días para estilo, 90 para aviso)
 function setCookie(cname, cvalue, exdays) {
     const d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -11,7 +7,6 @@ function setCookie(cname, cvalue, exdays) {
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
-// Leer una cookie
 function getCookie(cname) {
     let name = cname + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
@@ -28,11 +23,9 @@ function getCookie(cname) {
     return "";
 }
 
-/**
- * Lógica del Aviso de Cookies
- * Requisito PDF: Aparecer la primera vez o cada 90 días.
- */
+/* Lógica del Aviso de Cookies */
 document.addEventListener("DOMContentLoaded", function () {
+    // Comprobar si ya existe consentimiento
     const consentimiento = getCookie("cookie_consent");
 
     if (consentimiento === "") {
@@ -41,18 +34,18 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function mostrarBannerCookies() {
-    // Creamos el banner dinámicamente usando el DOM
+    // Crear el banner dinámicamente
     const banner = document.createElement("div");
-    banner.id = "cookie-banner";
-    banner.style.cssText = "position: fixed; bottom: 0; left: 0; width: 100%; background-color: #333; color: white; padding: 20px; text-align: center; z-index: 10000; box-shadow: 0 -2px 10px rgba(0,0,0,0.2);";
+    banner.id = "cookie-banner"; // El CSS se aplica por este ID
 
+    // HTML
     banner.innerHTML = `
-        <p style="display: inline-block; margin-right: 20px;">
+        <p>
             Este sitio web utiliza cookies propias para mejorar la experiencia del usuario y recordar su estilo preferido. 
-            <a href="politica_cookies.html" style="color: #4CAF50; text-decoration: underline;">Más información</a>.
+            <a href="politica_cookies.html">Más información</a>.
         </p>
-        <button id="btn-aceptar" style="padding: 8px 15px; background-color: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; margin-right: 10px;">ACEPTAR</button>
-        <button id="btn-rechazar" style="padding: 8px 15px; background-color: #f44336; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">RECHAZAR</button>
+        <button id="btn-aceptar" class="cookie-btn">ACEPTAR</button>
+        <button id="btn-rechazar" class="cookie-btn">RECHAZAR</button>
     `;
 
     document.body.appendChild(banner);
@@ -72,26 +65,25 @@ function aceptarCookies(aceptadas) {
     const banner = document.getElementById("cookie-banner");
     if (banner) banner.remove();
 
-    // Requisito PDF: Guardar decisión por 90 días
+    // Guardar decisión (90 días)
     const valor = aceptadas ? "true" : "false";
     setCookie("cookie_consent", valor, 90);
 
-    // Si rechaza, borramos la preferencia de estilo si existía
+    // Si rechaza, borramos preferencias de estilo
     if (!aceptadas) {
-        setCookie("estilo_seleccionado", "", -1); // Borrar cookie
+        setCookie("estilo_seleccionado", "", -1);
     }
 
-    // Requisito PDF: Mostrar mensaje temporal durante 5 segundos
+    // Mostrar mensaje temporal
     mostrarMensajeTemporal(aceptadas ? "Has aceptado las cookies. Guardaremos tu preferencia de estilo." : "Has rechazado las cookies. No se guardará tu estilo.");
 }
 
 function mostrarMensajeTemporal(texto) {
     const msg = document.createElement("div");
-    msg.style.cssText = "position: fixed; top: 20px; right: 20px; background-color: #fff; color: #333; padding: 15px; border-left: 5px solid #1b9986; box-shadow: 0 2px 10px rgba(0,0,0,0.2); z-index: 10001; border-radius: 4px;";
+    msg.className = "cookie-mensaje-temporal"; // Usamos clase CSS
     msg.textContent = texto;
     document.body.appendChild(msg);
 
-    // Desaparece a los 5 segundos
     setTimeout(function () {
         msg.remove();
     }, 5000);

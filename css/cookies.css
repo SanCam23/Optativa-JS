@@ -1,0 +1,147 @@
+/* =========================================
+   Estilos para el Banner de Cookies (Aviso)
+   ========================================= */
+#cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    z-index: 10000;
+    /* Para que quede por encima de todo */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+    font-family: Arial, sans-serif;
+}
+
+#cookie-banner p {
+    display: inline-block;
+    margin: 0 20px 10px 0;
+    /* Margen para separar de los botones */
+}
+
+#cookie-banner a {
+    color: #4CAF50;
+    text-decoration: underline;
+}
+
+/* Estilos generales para botones de cookies */
+.cookie-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 5px;
+    font-size: 0.9em;
+    transition: background-color 0.3s;
+}
+
+/* Botón Aceptar */
+#btn-aceptar {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#btn-aceptar:hover {
+    background-color: #45a049;
+}
+
+/* Botón Rechazar */
+#btn-rechazar {
+    background-color: #f44336;
+    color: white;
+}
+
+#btn-rechazar:hover {
+    background-color: #d32f2f;
+}
+
+/* Mensaje temporal (El "toast" de confirmación) */
+.cookie-mensaje-temporal {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #fff;
+    color: #333;
+    padding: 15px;
+    border-left: 5px solid #1b9986;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 10001;
+    border-radius: 4px;
+    font-family: Arial, sans-serif;
+    animation: fadeInOut 5s forwards;
+    /* Opcional: animación */
+}
+
+
+/* =========================================
+   Estilos para la Página "Política de Cookies"
+   (politica_cookies.html)
+   ========================================= */
+.politica-header {
+    padding: 20px;
+    background: #1b9986;
+    color: white;
+    text-align: center;
+}
+
+.politica-main {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    /* Por si el fondo es gris */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.politica-main h2 {
+    color: #1b9986;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-top: 30px;
+}
+
+.politica-acciones {
+    margin-top: 30px;
+    text-align: center;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+}
+
+.politica-acciones button {
+    padding: 12px 24px;
+    font-size: 1em;
+    margin: 0 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+
+.btn-aceptar-grande {
+    background-color: #4CAF50;
+}
+
+.btn-rechazar-grande {
+    background-color: #f44336;
+}
+
+.politica-volver {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.politica-volver a {
+    color: #1b9986;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.politica-volver a:hover {
+    text-decoration: underline;
+}

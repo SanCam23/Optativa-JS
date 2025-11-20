@@ -71,6 +71,10 @@ header.Cabecera {
             font-size: 1.4em;
             color: #ffeb3b;
         }
+
+        p {
+            color: #ffeb3b !important;
+        }
     }
 
     .menu-escritorio {
@@ -119,6 +123,10 @@ header.Cabecera {
 main {
     background-color: black !important;
 
+    h1 {
+        color: #ffeb3b !important;
+    }
+
     p {
         color: #fff !important;
     }
@@ -129,6 +137,10 @@ main {
 
     ul {
         color: #fff !important;
+
+        li {
+            color: #ffeb3b !important;
+        }
     }
 
     a {
@@ -209,7 +221,45 @@ main {
         }
     }
 
-    #destacado {
+    .destacado,
+    .anuncio {
+        background-color: grey !important;
+
+        h4 {
+            color: #ffcc00 !important;
+        }
+
+        a {
+            background-color: #ffcc00 !important;
+            color: #000 !important;
+            border: 2px solid #000;
+            font-weight: bold !important;
+
+            &:hover {
+                background-color: #003366 !important;
+                color: #ffcc00 !important;
+            }
+        }
+    }
+
+    a {
+        background-color: #ffcc00 !important;
+        color: #000 !important;
+        border: 2px solid #000;
+        font-weight: bold !important;
+
+        &:hover {
+            background-color: #003366 !important;
+            color: #ffcc00 !important;
+        }
+    }
+
+    .confirmacion {
+        background-color: grey !important;
+    }
+
+
+    .anuncios-mios {
         background-color: grey !important;
 
         a {
@@ -224,6 +274,19 @@ main {
             }
         }
     }
+
+    #datos-busqueda {
+        background-color: grey !important;
+    }
+
+    .perfil-info {
+        background-color: grey !important;
+    }
+
+    .info-actual {
+        background-color: grey;
+    }
+
 }
 
 footer {
@@ -246,6 +309,77 @@ footer {
             text-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
         }
     }
+}
+
+.estilo-actual {
+    background: grey !important;
+    border-left: 4px solid #ffeb3b !important;
+}
+
+/* ===== MENSAJES ANUNCIO ===== */
+.info-anuncio {
+    background: #333 !important;
+    border-left: 4px solid #ffeb3b !important;
+}
+
+.info-anuncio h3 {
+    color: #ffeb3b !important;
+}
+
+.info-anuncio p {
+    color: #fff !important;
+}
+
+.info-anuncio strong {
+    color: #ffeb3b !important;
+}
+
+.lista-mensajes h3 {
+    color: #ffeb3b !important;
+}
+
+.mensaje-item {
+    background: #333 !important;
+    border: 2px solid #ffcc00 !important;
+}
+
+.mensaje-header {
+    border-bottom: 1px solid #ffcc00 !important;
+}
+
+.mensaje-header h4 {
+    color: #ffeb3b !important;
+}
+
+.fecha {
+    color: #ccc !important;
+}
+
+.mensaje-remitente {
+    color: #fff !important;
+}
+
+.mensaje-remitente strong {
+    color: #ffeb3b !important;
+}
+
+.mensaje-remitente a {
+    color: #ffeb3b !important;
+}
+
+.mensaje-texto {
+    background: #444 !important;
+    border-left: 3px solid #ffeb3b !important;
+}
+
+.mensaje-texto p {
+    color: #fff !important;
+}
+
+.sin-mensajes {
+    background: #333 !important;
+    border: 2px dashed #ffcc00 !important;
+    color: #ccc !important;
 }
 
 @media (max-width: 767px) {

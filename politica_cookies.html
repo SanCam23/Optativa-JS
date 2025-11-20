@@ -5,14 +5,15 @@
     <meta charset="UTF-8">
     <title>Política de Cookies - VENTAPLUS</title>
     <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/cookies.css">
 </head>
 
 <body>
-    <header class="Cabecera" style="padding: 20px; background: #1b9986; color: white;">
+    <header class="Cabecera politica-header">
         <h1>Política de Cookies</h1>
     </header>
 
-    <main style="max-width: 800px; margin: 20px auto; padding: 20px;">
+    <main class="politica-main">
         <h2>¿Qué son las cookies?</h2>
         <p>Una cookie es un fichero que se descarga en su ordenador al acceder a determinadas páginas web...</p>
 
@@ -27,17 +28,13 @@
         <h2>Gestión de su consentimiento</h2>
         <p>Puede cambiar su decisión en cualquier momento:</p>
 
-        <div style="margin-top: 20px; text-align: center;">
-            <button onclick="aceptarCookies(true)"
-                style="padding: 10px 20px; background: #4CAF50; color: white; border: none; cursor: pointer; margin-right: 10px;">Aceptar
-                Cookies</button>
-            <button onclick="aceptarCookies(false)"
-                style="padding: 10px 20px; background: #f44336; color: white; border: none; cursor: pointer;">Rechazar
-                Cookies</button>
+        <div class="politica-acciones">
+            <button onclick="aceptarCookies(true)" class="btn-aceptar-grande">Aceptar Cookies</button>
+            <button onclick="aceptarCookies(false)" class="btn-rechazar-grande">Rechazar Cookies</button>
         </div>
 
-        <p style="margin-top: 20px; text-align: center;">
-            <a href="index.html" style="color: #1b9986;">Volver al inicio</a>
+        <p class="politica-volver">
+            <a href="index.html">Volver al inicio</a>
         </p>
     </main>
 

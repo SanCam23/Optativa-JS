@@ -41,7 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 3. Reinsertamos en el DOM (Manipulación del DOM)
         // appendChild mueve el elemento existente al final del contenedor.
-        // Como el h2 y los controles ya están ahí, los artículos se irán colocando después de ellos.
         anunciosOrdenados.forEach(anuncio => {
             contenedor.appendChild(anuncio);
         });
