@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", function() {
     loginPopup.style.display = "none";
 
     const loginBtns = document.querySelectorAll('a[href="index_identificado.html"]');
+
+    // Abrir popup de login
     loginBtns.forEach(function(btn) {
         btn.addEventListener("click", function(event) {
             event.preventDefault();
@@ -11,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
+    // Manejo del formulario de login
     const errorDialog = document.getElementById("error-dialog");
     const errorMensaje = document.getElementById("error-mensaje");
     const cerrarError = document.getElementById("cerrar-error");
@@ -20,11 +23,13 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     const loginForm = document.getElementById("login");
-    loginForm.addEventListener("submit", function(event) {
-        event.preventDefault();
 
-        const usuario = document.getElementById("usuario").value.trim();
-        const password = document.getElementById("password").value.trim();
+    // Validación del formulario de login
+    loginForm.addEventListener("submit", function(event) {
+        event.preventDefault(); // Evitar envío por defecto
+
+        const usuario = document.getElementById("usuario").value.trim(); // Obtener valor del usuario
+        const password = document.getElementById("password").value.trim(); // Obtener valor de la contraseña
 
         if (usuario === "" || password === "") {
             errorMensaje.textContent = "Por favor, completa ambos campos correctamente.";
