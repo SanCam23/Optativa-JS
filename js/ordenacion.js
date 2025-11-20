@@ -2,45 +2,61 @@ document.addEventListener('DOMContentLoaded', () => {
     const selectOrden = document.getElementById('ordenarPor');
     const contenedor = document.getElementById('resultados');
 
-    // 1. Guardamos una referencia a los anuncios originales para poder restaurar el orden "por defecto"
-    // Convertimos la NodeList a un Array real para poder manipularlo
+    // Guardamos la lista original
     let anunciosOriginales = Array.from(document.querySelectorAll('.anuncio-item'));
 
     selectOrden.addEventListener('change', () => {
         const criterio = selectOrden.value;
 
-        // Creamos una copia del array para ordenar
+        // Copia para ordenar
         let anunciosOrdenados = [...anunciosOriginales];
 
-        // 2. Lógica de ordenación
-        anunciosOrdenados.sort((a, b) => {
-            const precioA = parseInt(a.dataset.precio);
-            const precioB = parseInt(b.dataset.precio);
-            const fechaA = parseInt(a.dataset.fecha);
-            const fechaB = parseInt(b.dataset.fecha);
+        // Función auxiliar para obtener datos de forma limpia
+        const getDato = (el, dato) => el.dataset[dato];
+        const getNum = (el, dato) => parseInt(el.dataset[dato]);
 
+        anunciosOrdenados.sort((a, b) => {
             switch (criterio) {
+                // --- NUMÉRICOS ---
                 case 'precioAsc':
-                    return precioA - precioB; // Menor a Mayor
+                    return getNum(a, 'precio') - getNum(b, 'precio');
                 case 'precioDesc':
-                    return precioB - precioA; // Mayor a Menor
+                    return getNum(b, 'precio') - getNum(a, 'precio');
                 case 'fechaReciente':
-                    return fechaB - fechaA; // Más reciente (mayor número) primero
+                    return getNum(b, 'fecha') - getNum(a, 'fecha');
                 case 'fechaAntigua':
-                    return fechaA - fechaB; // Más antiguo primero
+                    return getNum(a, 'fecha') - getNum(b, 'fecha');
+
+                // --- TEXTO (Título) ---
+                case 'tituloAsc':
+                    return getDato(a, 'titulo').localeCompare(getDato(b, 'titulo'));
+                case 'tituloDesc':
+                    return getDato(b, 'titulo').localeCompare(getDato(a, 'titulo'));
+
+                // --- TEXTO (Ciudad) ---
+                case 'ciudadAsc':
+                    return getDato(a, 'ciudad').localeCompare(getDato(b, 'ciudad'));
+                case 'ciudadDesc':
+                    return getDato(b, 'ciudad').localeCompare(getDato(a, 'ciudad'));
+
+                // --- TEXTO (País) ---
+                case 'paisAsc':
+                    return getDato(a, 'pais').localeCompare(getDato(b, 'pais'));
+                case 'paisDesc':
+                    return getDato(b, 'pais').localeCompare(getDato(a, 'pais'));
+
                 case 'defecto':
                 default:
-                    return 0; // Mantiene el orden original del array copiado
+                    return 0;
             }
         });
 
-        // Si el criterio es 'defecto', usamos el array original para asegurar el orden inicial exacto
+        // Restaurar orden original si es "defecto"
         if (criterio === 'defecto') {
             anunciosOrdenados = anunciosOriginales;
         }
 
-        // 3. Reinsertamos en el DOM (Manipulación del DOM)
-        // appendChild mueve el elemento existente al final del contenedor.
+        // Reinsertar en el DOM
         anunciosOrdenados.forEach(anuncio => {
             contenedor.appendChild(anuncio);
         });
